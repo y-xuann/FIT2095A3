@@ -1,0 +1,44 @@
+<br>
+<div class="container-fluid" style="width:85%">
+  <div class="row row-cols-1 g-5">
+    <div class="col">
+        <div class="card-body" class="text-center">
+          @if(packages.length===0){
+            <h3>No packages found</h3>
+          }@else{    
+            <h6 class="bordered-heading">Delete packages</h6>        
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Weight</th>
+                  <th>Destination</th>
+                  <th>Description</th>
+                  <th>Is Allocated?</th>
+                  <th>Driver ID</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for(p of packages;track $index){  
+                  <tr>            
+                  <td><b>{{ p._id }}</b></td>
+                  <td>{{ p.packageTitle }}</td>
+                  <td>{{ p.packageWeight }}kg</td> 
+                  <td>{{ p.packageDestination }}</td>
+                  <td>{{ p.description }}</td>
+                  <td>{{ p.isAllocated }}</td> 
+                  <td>{{ p.driverId._id }}</td> 
+                  <td>
+                    <button class="btn btn-danger" (click)="deletePackage(p._id)">X</button>
+                  </td>
+                </tr>
+              }
+              </tbody>
+            </table>
+          }
+          </div>
+        </div>
+      </div>
+    </div>

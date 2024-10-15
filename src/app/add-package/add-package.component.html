@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-8 col-md-6 col-lg-5 g-2">
+            <div class="card">
+                <div class="card-header">Add Package</div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control form-control-sm" id="title" placeholder="Enter Package Title" [(ngModel)]="package.packageTitle" name="packageTitle" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" name="description" class="form-control form-control-sm" id="description" placeholder="Enter Package Description" [(ngModel)]="package.description" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight" class="form-label">Weight</label>
+                            <input type="text" name="weight" class="form-control form-control-sm" id="weight" placeholder="Enter Package Weight" [(ngModel)]="package.packageWeight" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="destination" class="form-label">Destination</label>
+                            <input type="text" name="destination" class="form-control form-control-sm" id="destination" placeholder="Enter Package Destination" [(ngModel)]="package.packageDestination" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="driverID" class="form-label">Driver ID</label>
+                            <select name="driverID" id="driverID" class="form-control form-control-sm" [(ngModel)]="package.driverId" required>
+                                <option value="">-</option>
+                                @for(driver of drivers;track $index){  
+                                   <option value= "{{driver._id}}">{{ driver.driverId }}</option>}
+                            </select>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="isAllocated" [(ngModel)]="package.isAllocated" name="isAllocated">
+                            <label class="form-check-label" for="isAllocated">Is Allocated?</label>
+                        </div>
+                        <button class="btn btn-primary" (click)="addPackage()" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

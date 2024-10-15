@@ -1,0 +1,73 @@
+<br>
+<div class="container-fluid" style="width:85%">
+  <div class="row row-cols-1 g-5">
+    <div class="col">
+        <div class="card-body" class="text-center">
+          @if(drivers.length===0){
+            <h3>No drivers found</h3>
+          }@else{           
+            <h6 class="bordered-heading">List drivers</h6> 
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Id</th>
+                  <th>Driver Id</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>License</th>
+                  <th>Is Active?</th>
+                  <th>Packages</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for(driver of drivers;track $index){  
+                  <tr>            
+                  <td><b>{{ driver._id }}</b></td>
+                  <td>{{ driver.driverId }}</td>
+                  <td>{{ driver.driverName | convertUpperPipe }}</td> 
+                  <td>{{ driver.driverDepartment }}</td>
+                  <td>{{ driver.driverLicense }}</td>
+                  <td>{{ driver.driverIsActive}}</td> 
+                  <td>
+                    <button class="btn btn-info" (click)="showPackage(driver._id, driver.driverId)">?</button>
+                  </td>
+                </tr>
+              }
+              </tbody>
+            </table>
+          }
+          <br>
+          @if(assignedPackages === null) {
+          }@else if(assignedPackages.length===0){
+            <h3>No packages found</h3>
+          }@else{           
+            <h6 class="bordered-heading">Package Details of Driver {{selectedDriver}}</h6> 
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Weight</th>
+                  <th>Destination</th>
+                  <th>Description</th>
+                  <th>Is Allocated?</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for(package of assignedPackages;track $index){  
+                  <tr>            
+                  <td><b>{{ package.packageId }}</b></td>
+                  <td>{{ package.packageTitle }}</td>
+                  <td>{{ package.packageWeight }}</td> 
+                  <td>{{ package.packageDestination }}</td>
+                  <td>{{ package.description }}</td>
+                  <td>{{ package.isAllocated }}</td> 
+                </tr>
+              }
+              </tbody>
+            </table>
+          }
+          </div>
+        </div>
+      </div>
+    </div>

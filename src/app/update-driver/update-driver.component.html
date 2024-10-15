@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-8 col-md-6 col-lg-4 g-2">
+            <div class="card">
+                <div class="card-header">Update Driver</div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">ID</label>
+                            <input type="text" class="form-control" placeholder="Enter MongoDB ID" id="name" [(ngModel)]="driver.id" name="driverName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select name="department" id="department" class="form-control" [(ngModel)]="driver.driverDepartment" required>
+                                <option value="Food">Food</option>
+                                <option value="Furniture">Furniture</option>
+                                <option value="Electronic">Electronic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="license">License</label>
+                            <input type="text" class="form-control" placeholder="Enter driver license" id="license" [(ngModel)]="driver.driverLicense" name="driverLicense" required>
+                        </div>
+                        <h6></h6>
+                        <button type="submit" class="btn btn-primary" (click)="updateDriver()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div style="width: 70%; margin: auto; display: flex; justify-content: center;"> 
+    <div class="row">
+        <div class="col-sm-12">
+                <div class="card-header text-center" style="font-size: 1.3rem;"><b>Translate</b></div>
+                <div class="card-body" style="padding: 20px;">
+                    <div class="row justify-content-center">
+                        <div class="col-12"> 
+                            @if(packages.length === 0) {
+                                <h3>No packages found</h3>
+                            } @else {
+                                <table class="table table-hover">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Title</th>
+                                            <th>Weight</th>
+                                            <th>Destination</th>
+                                            <th>Description</th>
+                                            <th>Translate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for(package of packages; track $index) {
+                                            <tr>
+                                                <td><b>{{ package._id }}</b></td>
+                                                <td>{{ package.packageTitle }}</td>
+                                                <td>{{ package.packageWeight }}</td>
+                                                <td>{{ package.packageDestination }}</td>
+                                                <td>{{ package.description }}</td>
+                                                <td>
+                                                    <button class="btn btn-success" (click)="translate(package.description, language)">T</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                                <!-- Language Selector -->
+                                <div class="form-group">
+                                    <label for="language">Target Language</label>
+                                    <select name="language" id="language" class="form-control" [(ngModel)]="language">
+                                        <option value="" disabled selected>Select a language</option>
+                                        <option value="ms">Malay</option>
+                                        <option value="zh-CN">Chinese</option>
+                                        <option value="hi">Hindi</option>
+                                    </select>
+                                </div>
+
+                                @if(language.length != 0) {
+                                    <!-- Translation Results -->
+                                    <table class="table table-hover mt-3"> <!-- Added margin-top for spacing -->
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Text</th>
+                                                <th>Target Language</th>
+                                                <th>Translation</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for(elem of translations; track $index) {
+                                                @if(elem.language) {
+                                                    <tr>
+                                                        <td>{{ elem.oriText }}</td>
+                                                        <td>{{ elem.language }}</td>
+                                                        <td>{{ elem.translated }}</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

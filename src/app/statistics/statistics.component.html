@@ -1,0 +1,52 @@
+<div class="container-fluid mt-4 d-flex flex-column align-items-center" style="margin-top: 2%; margin-block-start: 0%;">
+    <h6 class="bordered-heading">App Statistics</h6>
+    <div style="width: 20%;"> 
+      <table class="table table-striped"> 
+        <thead>
+          <tr>
+            <th scope="col">Operation</th>
+            <th scope="col">Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Insert</th>
+            <td>{{ records.insert }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Retrieve</th>
+            <td>{{ records.retrieve }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Update</th>
+            <td>{{ records.update }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Delete</th>
+            <td>{{ records.delete }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 20%;"> 
+      <table class="table table-striped"> 
+          <thead>
+            <tr>
+              <th scope="col">Models</th>
+              <th scope="col">Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Drivers</th>
+              <td>{{ drivers.length }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Packages</th>
+              <td>{{ packages.length }}</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+</div>

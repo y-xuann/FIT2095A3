@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-8 col-md-6 col-lg-4 g-2">
+            <div class="card shadow-sm">
+                <div class="card">
+                <div class="card-header">User Login</div>
+                <div class="card-body">
+                    <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control"  minlength="6" maxlength="20" placeholder="Enter Username" id="username" [(ngModel)]="user.username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" minlength="5" maxlength="10" id="password" [(ngModel)]="user.password" name="password" required>
+                    </div>
+                    <h5></h5>
+                    <button class="btn btn-primary" (click)="login()" type="submit">Login</button>
+                    <button class="btn btn-secondary float-end" role="button" (click)="signup()">Signup</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            

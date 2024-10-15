@@ -1,0 +1,46 @@
+<div style="width: 70%; margin: auto; display: flex; justify-content: center;"> 
+    <div class="row">
+        <div class="col-sm-12">
+                <div class="card-header text-center" style="font-size: 1.3rem;"><b>Distance Calculator</b></div>
+                <div class="card-body" style="padding: 20px;">
+                    <div class="row justify-content-center">
+                        <div class="col-12"> 
+                            @if(packages.length === 0) {
+                                <h3>No packages found</h3>
+                            } @else {
+                                <table class="table table-hover">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Title</th>
+                                            <th>Weight</th>
+                                            <th>Destination</th>
+                                            <th>Description</th>
+                                            <th>KMs to Melb</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for(package of packages; track $index) {
+                                            <tr>
+                                                <td><b>{{ package._id }}</b></td>
+                                                <td>{{ package.packageTitle }}</td>
+                                                <td>{{ package.packageWeight }}</td>
+                                                <td>{{ package.packageDestination }}</td>
+                                                <td>{{ package.description }}</td>
+                                                <td>
+                                                    <button class="btn btn-success" (click)="calculate(package.packageDestination)">D</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                @if(generatedText.length != 0) {
+                                    <h4>{{generatedText}}</h4>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

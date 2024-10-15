@@ -1,0 +1,69 @@
+<br>
+<div class="container-fluid" style="width:85%">
+  <div class="row row-cols-1 g-5">
+    <div class="col">
+        <div class="card-body" class="text-center">
+          @if(packages.length===0){
+            <h3>No packages found</h3>
+          }@else{ 
+            <h6 class="bordered-heading">List packages</h6>           
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Id</th>
+                  <th>Package Id</th>
+                  <th>Title</th>
+                  <th>Weight</th>
+                  <th>Destination</th>
+                  <th>Description</th>
+                  <th>Is Allocated?</th>
+                  <th>Driver ID</th>
+                  <th>Driver</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for(package of packages;track $index){  
+                  <tr>            
+                  <td><b>{{ package._id}}</b></td>
+                  <td>{{ package.packageId }}</td>
+                  <td>{{ package.packageTitle }}</td>
+                  <td>{{ package.packageWeight | convertWeight}}g</td> 
+                  <td>{{ package.packageDestination }}</td>
+                  <td>{{ package.description }}</td>
+                  <td>{{ package.isAllocated }}</td> 
+                  <td>{{ package.driverId._id }}</td> 
+                  <td>
+                    <button class="btn btn-info" (click)="showDriver(package.driverId, package.packageId)">?</button>
+                  </td>
+                </tr>
+              }
+              </tbody>
+            </table>
+          }
+          <br>
+          @if(assignedDriver === null) {
+          }@else{           
+            <h6 class="bordered-heading">Driver Details of Package {{selectedPackage}}</h6> 
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>License</th>
+                  <th>Is Active?</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>            
+                    <td>{{ assignedDriver.driverName  }}</td> 
+                    <td>{{ assignedDriver.driverDepartment }}</td>
+                    <td>{{ assignedDriver.driverLicense }}</td>
+                    <td>{{ assignedDriver.driverIsActive}}</td> 
+                </tr>
+              </tbody>
+            </table>
+          }          
+          </div>
+        </div>
+      </div>
+    </div>

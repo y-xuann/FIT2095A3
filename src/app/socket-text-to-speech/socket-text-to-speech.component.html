@@ -1,0 +1,48 @@
+<div style="width: 70%; margin: auto; display: flex; justify-content: center;"> 
+    <div class="row">
+        <div class="col-sm-12">
+                <div class="card-header text-center" style="font-size: 1.3rem;"><b>Text to Speech Converter</b></div>
+                <div class="card-body" style="padding: 20px;">
+                    <div class="row justify-content-center">
+                        <div class="col-12"> 
+                            @if(drivers.length === 0) {
+                                <h3>No drivers found</h3>
+                            } @else {
+                                <table class="table table-hover">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Driver Id</th>
+                                            <th>Name</th>
+                                            <th>Department</th>
+                                            <th>License</th>
+                                            <th>Speech</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for(driver of drivers; track $index) {
+                                            <tr>
+                                                <td><b>{{ driver.driverId }}</b></td>
+                                                <td>{{ driver.driverName }}</td>
+                                                <td>{{ driver.driverDepartment }}</td>
+                                                <td>{{ driver.driverLicense }}</td>
+                                                <td>
+                                                    <button class="btn btn-success" (click)="convert(driver.driverLicense)">S</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody> 
+                                </table>
+                                <h6>  </h6>
+                            @if (audioFile){
+                                <h6>Generated Audio for License {{driverLicense}}: </h6>
+                                <audio controls>
+                                    <source [src]="audioFile" type="audio/mpeg">                             
+                                </audio>
+                            }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

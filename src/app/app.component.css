@@ -1,0 +1,40 @@
+html, body {
+    height: 100%; /* Ensure html and body take full height */
+    margin: 0; /* Remove default margin */
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    min-height: 100vh; /*Set the minimum height to full viewport height */
+}
+
+.custom-navbar {
+    background-color: #8fd0fe; /* Your background color */
+    padding: 20; /* Remove padding */
+    height: 45px; /* Set the desired height */
+}
+
+
+.content {
+    flex: 1; /* Makes the content take up the remaining height between header and footer */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    padding: 20px; /* Add padding if needed */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.card-header {
+    background-color: #b4b4b4;
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+.row {
+    max-height: 120px;
+}
+
+footer {
+    background: rgb(213, 239, 255);
+    padding: 10px; /* Add padding for spacing */
+    max-height: 150px; /* Minimum height */
+}
